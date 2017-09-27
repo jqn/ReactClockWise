@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "TKDO",
+  "description": "Track you todos with this simple to do list tracker",
+  "version": "1.0",
+  "permissions": ["management"],
+  "chrome_url_overrides": {
+    "newtab": "popup.html"
+  },
+ "icons": {
+    "128": "icon.png"
+  }
+}
