@@ -1,14 +1,14 @@
 {
-  "manifest_version": 2,
-
+  "version": "0.0.1",
   "name": "TKDO",
+  "manifest_version": 2,
   "description": "Track you todos with this simple to do list tracker",
-  "version": "1.0",
-  "permissions": ["management"],
+  "permissions": [ "contextMenus", "management", "tabs", "storage", "https://github.com/*" ],
+  "content_security_policy": "default-src 'self'; script-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;",
   "chrome_url_overrides": {
-    "newtab": "popup.html"
+    "newtab": "index.html"
   },
- "icons": {
+  "icons": {
     "128": "icon.png"
   }
 }
