@@ -1,13 +1,19 @@
 {
-	"name": "from-grunt-to-webpack",
+	"name": "Todo time tracker",
 	"version": "0.0.1",
 	"scripts": {
 		"build": "webpack",
 		"watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jqn/tkdo.git"
+	},
 	"dependencies": {
 		"react": "0.14.6",
-		"react-dom": "0.14.6"
+		"react-dom": "0.14.6",
+		"react-redux": "^5.0.6",
+		"redux-thunk": "^2.2.0"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.0",
