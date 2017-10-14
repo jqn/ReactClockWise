@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TodoItem from './TodoItem';
 // import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
 
 // const TODO_FILTERS = {
@@ -47,14 +48,18 @@ export default class MainSection extends Component {
   }
 
   render() {
-    console.log('props', this.props);
-    // const { todos, actions } = this.props;
+    console.log('main props', this.props);
+    const { todos, actions } = this.props;
     // const { filter } = this.state;
 
     return (
       <section className="main">
         {this.renderToggleAll()}
-        <ul className="todo-list" />
+        <ul className="todo-list">
+          {todos.map(todo => (
+            <TodoItem key={todo.id} todo={todo} {...actions} />
+          ))}
+        </ul>
       </section>
     );
   }
