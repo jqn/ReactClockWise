@@ -38,7 +38,7 @@ export default class MainSection extends Component {
             type="checkbox"
             checked={completedCount === todos.length}
           />
-          <label onClick={actions.completeAll} />
+          <label onClick={actions.completeAll}>X</label>
         </span>
       );
     }

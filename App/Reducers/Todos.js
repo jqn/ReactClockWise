@@ -16,7 +16,6 @@ export const Todos = createReducer([], {
     return state.filter(todo => todo.id !== action.id);
   },
   [types.EDIT_TODO](state, action) {
-    console.log('edit state', state);
     return state.map(
       todo =>
         todo.id === action.id
@@ -27,8 +26,8 @@ export const Todos = createReducer([], {
   [types.COMPLETE_TODO](state, action) {
     return state.map(
       todo =>
-        todo.id
-          ? { id: todo.id, completed: !todo.completed, text: todo.text }
+        todo.id === action.id
+          ? { id: action.id, completed: !todo.completed, text: todo.text }
           : todo,
     );
   },
