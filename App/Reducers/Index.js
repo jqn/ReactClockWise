@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-import Todos from './Todos';
+import * as todosReducer from './Todos';
 
-export default combineReducers({
-  Todos
-});
+export default combineReducers(Object.assign(todosReducer));
