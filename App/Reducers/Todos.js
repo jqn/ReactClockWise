@@ -12,4 +12,35 @@ export const Todos = createReducer([], {
       },
     ];
   },
+  [types.DELETE_TODO](state, action) {
+    return state.filter(todo => todo.id !== action.id);
+  },
+  [types.EDIT_TODO](state, action) {
+    console.log('edit state', state);
+    return state.map(
+      todo =>
+        todo.id === action.id
+          ? { id: todo.id, completed: todo.completed, text: action.text }
+          : todo,
+    );
+  },
+  [types.COMPLETE_TODO](state, action) {
+    return state.map(
+      todo =>
+        todo.id
+          ? { id: todo.id, completed: !todo.completed, text: todo.text }
+          : todo,
+    );
+  },
+  [types.COMPLETE_ALL](state, action) {
+    const areAllMarked = state.every(todo => todo.completed);
+    return state.map(todo => ({
+      id: todo.id,
+      completed: !areAllMarked,
+      text: todo.text,
+    }));
+  },
+  [types.CLEAR_COMPLETED](state, action) {
+    return state.filter(todo => todo.completed === false);
+  },
 });

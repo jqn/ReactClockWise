@@ -4,12 +4,13 @@ import classnames from 'classnames';
 
 export default class TodoTextInput extends Component {
   static propTypes = {
-    onSave: PropTypes.func,
+    onSave: PropTypes.func.isRequired,
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,
     newTodo: PropTypes.bool,
   };
+
   state = {
     text: this.props.text || '',
   };
@@ -37,6 +38,10 @@ export default class TodoTextInput extends Component {
   render() {
     return (
       <input
+        className={classnames({
+          edit: this.props.editing,
+          'new-todo': this.props.newTodo,
+        })}
         type="text"
         placeholder={this.props.placeholder}
         autoFocus="true"
