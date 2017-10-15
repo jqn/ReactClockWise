@@ -17,26 +17,20 @@ export const Todos = createReducer([], {
   },
   [types.EDIT_TODO](state, action) {
     return state.map(
-      todo =>
-        todo.id === action.id
-          ? { id: todo.id, completed: todo.completed, text: action.text }
-          : todo,
+      todo => (todo.id === action.id ? { ...todo, text: action.text } : todo),
     );
   },
   [types.COMPLETE_TODO](state, action) {
     return state.map(
       todo =>
-        todo.id === action.id
-          ? { id: action.id, completed: !todo.completed, text: todo.text }
-          : todo,
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
     );
   },
   [types.COMPLETE_ALL](state, action) {
     const areAllMarked = state.every(todo => todo.completed);
     return state.map(todo => ({
-      id: todo.id,
+      ...todo,
       completed: !areAllMarked,
-      text: todo.text,
     }));
   },
   [types.CLEAR_COMPLETED](state, action) {

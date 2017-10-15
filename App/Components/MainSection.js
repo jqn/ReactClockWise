@@ -1,9 +1,8 @@
-'use strict';
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
+import Stopwatch from './Stopwatch';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
 
 const TODO_FILTERS = {
@@ -12,13 +11,30 @@ const TODO_FILTERS = {
   [SHOW_COMPLETED]: todo => todo.completed,
 };
 
+var tens = 0;
+
 export default class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
   };
 
-  state = { filter: SHOW_ALL };
+  state = {
+    filter: SHOW_ALL,
+    // tens: 00,
+  };
+
+  componentDidMount = () => {
+    // setInterval(this.startTimer, 10);
+    // var tens = 00;
+  };
+
+  startTimer = () => {
+    tens++;
+    if (tens < 9) {
+      console.log('tens', '0' + tens);
+    }
+  };
 
   handleClearCompleted = () => {
     this.props.actions.clearCompleted();
@@ -81,6 +97,7 @@ export default class MainSection extends Component {
           ))}
         </ul>
         {this.renderFooter(completedCount)}
+        <Stopwatch />
       </section>
     );
   }
