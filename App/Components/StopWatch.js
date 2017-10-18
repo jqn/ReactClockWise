@@ -26,7 +26,7 @@ export default class Stopwatch extends Component {
     });
   };
 
-  playTime = () => {
+  runTimer = () => {
     if (!this.state.toggle) {
       this.startTime();
     } else {
@@ -44,7 +44,7 @@ export default class Stopwatch extends Component {
     this.toggle();
   };
 
-  resetTime = () => {
+  resetTimer = () => {
     this.initializeTime();
     this.clearInterval();
     this.setState({ toggle: false });
@@ -81,28 +81,28 @@ export default class Stopwatch extends Component {
   };
 
   render() {
-    var toggleText = !this.state.toggle ? 'Play' : 'Pause';
+    let toggleText = !this.state.toggle ? 'Play' : 'Pause';
 
     return (
       <div className="mdl-cell mdl-cell--12-col">
         <div>
-          <div className="mdl-card__title--expand">
-            <h1 ref="time" className="p-5 m-0" id="time">
+          <div className="">
+            <h4 ref="time" className="p-5 m-0" id="time">
               {this.state.currentTime}
-            </h1>
+            </h4>
           </div>
 
-          <div className="mdl-card__actions">
+          <div className="">
             <button
               className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary"
-              onClick={this.playTime}
+              onClick={this.runTimer}
             >
               {toggleText}
             </button>
 
             <button
               className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary float--right"
-              onClick={this.resetTime}
+              onClick={this.resetTimer}
             >
               Reset
             </button>

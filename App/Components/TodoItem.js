@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import TodoTextInput from './TodoTextInput';
+import Stopwatch from './Stopwatch';
 
 export default class TodoItem extends Component {
   static propTypes = {
@@ -51,6 +52,7 @@ export default class TodoItem extends Component {
             onChange={() => completeTodo(todo.id)}
           />
           <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
+          <Stopwatch />
           <button className="destroy" onClick={() => deleteTodo(todo.id)} />
         </div>
       );

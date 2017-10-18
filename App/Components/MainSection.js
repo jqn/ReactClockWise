@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
-import Stopwatch from './Stopwatch';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
 
 const TODO_FILTERS = {
@@ -21,12 +20,6 @@ export default class MainSection extends Component {
 
   state = {
     filter: SHOW_ALL,
-    // tens: 00,
-  };
-
-  componentDidMount = () => {
-    // setInterval(this.startTimer, 10);
-    // var tens = 00;
   };
 
   startTimer = () => {
@@ -54,7 +47,7 @@ export default class MainSection extends Component {
             type="checkbox"
             checked={completedCount === todos.length}
           />
-          <label onClick={actions.completeAll}>X</label>
+          <label onClick={actions.completeAll} />
         </span>
       );
     }
@@ -89,7 +82,7 @@ export default class MainSection extends Component {
     );
 
     return (
-      <section className="main">
+      <section className="main mdl-layout__content">
         {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo => (
@@ -97,7 +90,6 @@ export default class MainSection extends Component {
           ))}
         </ul>
         {this.renderFooter(completedCount)}
-        <Stopwatch />
       </section>
     );
   }
