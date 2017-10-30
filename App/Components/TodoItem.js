@@ -30,7 +30,6 @@ export default class TodoItem extends Component {
   };
 
   render() {
-    console.log('TodoItem props', this.props);
     const { todo, completeTodo, deleteTodo } = this.props;
 
     let element;
@@ -44,16 +43,22 @@ export default class TodoItem extends Component {
       );
     } else {
       element = (
-        <div className="view">
-          <input
-            className="toggle"
-            type="checkbox"
-            checked={todo.completed}
-            onChange={() => completeTodo(todo.id)}
-          />
-          <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
-          <Stopwatch />
-          <button className="destroy" onClick={() => deleteTodo(todo.id)} />
+        <div className="view ">
+          <div className="mdl-grid">
+            <div className="mdl-cell mdl-cell--5-col">
+              <input
+                className="toggle"
+                type="checkbox"
+                checked={todo.completed}
+                onChange={() => completeTodo(todo.id)}
+              />
+              <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
+            </div>
+            <Stopwatch />
+            <div className="mdl-cell mdl-cell--2-col">
+              <button className="destroy" onClick={() => deleteTodo(todo.id)} />
+            </div>
+          </div>
         </div>
       );
     }

@@ -82,7 +82,7 @@ export default class MainSection extends Component {
     );
 
     return (
-      <section className="main mdl-layout__content">
+      <section className="main">
         {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo => (

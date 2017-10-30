@@ -37,17 +37,20 @@ export default class Stopwatch extends Component {
   startTime() {
     this.createInterval();
     this.toggle();
+    this.props.todo.start('running', this.state.currentTime);
   }
 
   pauseTime = () => {
     this.clearInterval();
     this.toggle();
+    this.props.todo.pause('paused', this.state.currentTime);
   };
 
   resetTimer = () => {
     this.initializeTime();
     this.clearInterval();
     this.setState({ toggle: false });
+    this.props.todo.reset();
   };
 
   toggle = () => {
@@ -82,32 +85,23 @@ export default class Stopwatch extends Component {
 
   render() {
     let toggleText = !this.state.toggle ? 'Play' : 'Pause';
+    const { start, reset, pause } = this.props;
 
     return (
-      <div className="mdl-cell mdl-cell--12-col">
-        <div>
-          <div className="">
-            <h4 ref="time" className="p-5 m-0" id="time">
-              {this.state.currentTime}
-            </h4>
-          </div>
-
-          <div className="">
-            <button
-              className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary"
-              onClick={this.runTimer}
-            >
-              {toggleText}
-            </button>
-
-            <button
-              className="mdl-button mdl-js-button mdl-button--raised mdl-button--primary float--right"
-              onClick={this.resetTimer}
-            >
-              Reset
-            </button>
-          </div>
-        </div>
+      <div ref="time" className="stopwatch mdl-cell mdl-cell--4-col" id="time">
+        <h4>{this.state.currentTime}</h4>
+        <button
+          className="mdl-button mdl-js-button mdl-button--raised"
+          onClick={this.runTimer}
+        >
+          {toggleText}
+        </button>
+        <button
+          className="mdl-button mdl-js-button mdl-button--raised"
+          onClick={this.resetTimer}
+        >
+          Reset
+        </button>
       </div>
     );
   }

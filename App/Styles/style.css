@@ -1,1 +1,10 @@
+/* CSS Reset */
+ol,
+ul {
+  list-style: none;
+}
 
+.stopwatch,
+.stopwatch h4 {
+  display: inline;
+}

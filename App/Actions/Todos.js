@@ -16,10 +16,34 @@ export function completeTodo(id) {
   return { type: types.COMPLETE_TODO, id };
 }
 
+export function trackTodo(id, text, timestamp) {
+  return { type: types.TRACK_TODO, id, timestamp };
+}
+
 export function completeAll() {
   return { type: types.COMPLETE_ALL };
 }
 
 export function clearCompleted() {
   return { type: types.CLEAR_COMPLETED };
+}
+
+export function start(status, time) {
+  return {
+    type: types.START,
+    status,
+    time,
+  };
+}
+
+export function pause(status, time) {
+  return {
+    type: types.PAUSE,
+    status,
+    time,
+  };
+}
+
+export function reset() {
+  return { type: types.RESET };
 }

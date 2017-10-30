@@ -9,3 +9,8 @@ export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
 export const SHOW_ALL = 'show_all';
 export const SHOW_COMPLETED = 'show_completed';
 export const SHOW_ACTIVE = 'show_active';
+// Timers
+export const START = 'START';
+export const PAUSE = 'PAUSE';
+export const RESET = 'RESET';
+export const TRACK_TODO = 'TRACK_TODO';

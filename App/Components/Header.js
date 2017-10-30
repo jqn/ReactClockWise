@@ -15,18 +15,14 @@ export default class Header extends Component {
 
   render() {
     return (
-      <header className="header mdl-layout__header">
-        <div className="mdl-layout__header-row">
-          <h1 className="mdl-layout-title">todos</h1>
-        </div>
-        <div className="mdl-grid">
-          <TodoTextInput
-            newTodo
-            onSave={this.handleSave}
-            placeholder="What needs to be done?"
-          />
-        </div>
-      </header>
+      <div className="header">
+        <h1>todos</h1>
+        <TodoTextInput
+          newTodo
+          onSave={this.handleSave}
+          placeholder="What needs to be done?"
+        />
+      </div>
     );
   }
 }

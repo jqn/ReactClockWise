@@ -3,6 +3,7 @@ import * as types from '../Actions/Types';
 
 export const Todos = createReducer([], {
   [types.ADD_TODO](state, action) {
+    localStorage.setItem('todos', 'test');
     return [
       ...state,
       {
@@ -26,6 +27,12 @@ export const Todos = createReducer([], {
         todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
     );
   },
+  [types.TRACK_TODO](state, action) {
+    return state.map(
+      todo =>
+        todo.id === action.id ? { ...todo, timestamp: action.timestamp } : todo,
+    );
+  },
   [types.COMPLETE_ALL](state, action) {
     const areAllMarked = state.every(todo => todo.completed);
     return state.map(todo => ({
@@ -35,5 +42,29 @@ export const Todos = createReducer([], {
   },
   [types.CLEAR_COMPLETED](state, action) {
     return state.filter(todo => todo.completed === false);
+  },
+});
+
+export const Timers = createReducer([], {
+  [types.START](state, action) {
+    return [
+      ...state,
+      {
+        status: action.status,
+        time: action.time,
+      },
+    ];
+  },
+  [types.PAUSE](state, action) {
+    return [
+      ...state,
+      {
+        status: action.status,
+        time: action.time,
+      },
+    ];
+  },
+  [types.RESET](state, action) {
+    return [];
   },
 });
