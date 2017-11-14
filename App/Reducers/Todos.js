@@ -3,13 +3,14 @@ import * as types from '../Actions/Types';
 
 export const Todos = createReducer([], {
   [types.ADD_TODO](state, action) {
-    localStorage.setItem('todos', 'test');
     return [
       ...state,
       {
         id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
         completed: false,
         text: action.text,
+        timestamp: action.timestamp,
+        datestamp: action.datestamp,
       },
     ];
   },
@@ -43,28 +44,31 @@ export const Todos = createReducer([], {
   [types.CLEAR_COMPLETED](state, action) {
     return state.filter(todo => todo.completed === false);
   },
-});
-
-export const Timers = createReducer([], {
   [types.START](state, action) {
-    return [
-      ...state,
-      {
-        status: action.status,
-        time: action.time,
-      },
-    ];
+    return state.map(
+      todo =>
+        todo.id === action.id ? { ...todo, status: action.status } : todo,
+    );
   },
   [types.PAUSE](state, action) {
-    return [
-      ...state,
-      {
-        status: action.status,
-        time: action.time,
-      },
-    ];
+    return state.map(
+      todo =>
+        todo.id === action.id
+          ? { ...todo, status: action.status, timestamp: action.timestamp }
+          : todo,
+    );
   },
   [types.RESET](state, action) {
-    return [];
+    return state.map(
+      todo =>
+        todo.id === action.id
+          ? {
+              ...todo,
+              status: action.status,
+              timestamp: action.timestamp,
+              datestamp: action.datestamp,
+            }
+          : todo,
+    );
   },
 });

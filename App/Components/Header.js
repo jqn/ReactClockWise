@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TodoTextInput from './TodoTextInput';
+import time from '../Lib/TimeTracker';
 
 export default class Header extends Component {
   static propTypes = {
@@ -9,7 +10,7 @@ export default class Header extends Component {
 
   handleSave = text => {
     if (text.length !== 0) {
-      this.props.addTodo(text);
+      this.props.addTodo(text, '00:00:00', time());
     }
   };
 

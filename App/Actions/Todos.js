@@ -1,7 +1,7 @@
 import * as types from './Types';
 
-export function addTodo(text) {
-  return { type: types.ADD_TODO, text };
+export function addTodo(text, timestamp, datestamp) {
+  return { type: types.ADD_TODO, text, timestamp, datestamp };
 }
 
 export function deleteTodo(id) {
@@ -28,22 +28,29 @@ export function clearCompleted() {
   return { type: types.CLEAR_COMPLETED };
 }
 
-export function start(status, time) {
+export function start(status, id) {
   return {
     type: types.START,
     status,
-    time,
+    id,
   };
 }
 
-export function pause(status, time) {
+export function pause(status, id, timestamp) {
   return {
     type: types.PAUSE,
     status,
-    time,
+    id,
+    timestamp,
   };
 }
 
-export function reset() {
-  return { type: types.RESET };
+export function reset(status, id, timestamp, datestamp) {
+  return {
+    type: types.RESET,
+    status,
+    id,
+    timestamp,
+    datestamp,
+  };
 }

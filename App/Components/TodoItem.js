@@ -30,8 +30,12 @@ export default class TodoItem extends Component {
   };
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props;
-
+    const { todo, completeTodo, deleteTodo, reset, start, pause } = this.props;
+    const actions = {
+      reset: this.props.reset,
+      start: this.props.start,
+      pause: this.props.pause,
+    };
     let element;
     if (this.state.editing) {
       element = (
@@ -54,7 +58,7 @@ export default class TodoItem extends Component {
               />
               <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
             </div>
-            <Stopwatch />
+            <Stopwatch todo={this.props.todo} {...actions} />
             <div className="mdl-cell mdl-cell--2-col">
               <button className="destroy" onClick={() => deleteTodo(todo.id)} />
             </div>

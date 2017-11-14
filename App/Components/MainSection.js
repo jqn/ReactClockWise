@@ -22,13 +22,6 @@ export default class MainSection extends Component {
     filter: SHOW_ALL,
   };
 
-  startTimer = () => {
-    tens++;
-    if (tens < 9) {
-      console.log('tens', '0' + tens);
-    }
-  };
-
   handleClearCompleted = () => {
     this.props.actions.clearCompleted();
   };

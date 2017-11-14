@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import time from '../Lib/TimeTracker';
 import moment from 'moment';
 
 export default class Stopwatch extends Component {
@@ -37,20 +38,20 @@ export default class Stopwatch extends Component {
   startTime() {
     this.createInterval();
     this.toggle();
-    this.props.todo.start('running', this.state.currentTime);
+    this.props.start('running', this.props.todo.id);
   }
 
   pauseTime = () => {
     this.clearInterval();
     this.toggle();
-    this.props.todo.pause('paused', this.state.currentTime);
+    this.props.pause('paused', this.props.todo.id, this.state.currentTime);
   };
 
   resetTimer = () => {
     this.initializeTime();
     this.clearInterval();
     this.setState({ toggle: false });
-    this.props.todo.reset();
+    this.props.reset('reset', this.props.todo.id, '00:00:00', time());
   };
 
   toggle = () => {
@@ -85,7 +86,6 @@ export default class Stopwatch extends Component {
 
   render() {
     let toggleText = !this.state.toggle ? 'Play' : 'Pause';
-    const { start, reset, pause } = this.props;
 
     return (
       <div ref="time" className="stopwatch mdl-cell mdl-cell--4-col" id="time">
