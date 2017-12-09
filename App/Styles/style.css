@@ -1,10 +1,32 @@
-/* CSS Reset */
+/***
+  * CSS Resets
+  ***/
 ol,
 ul {
   list-style: none;
+  padding: 0;
+}
+/***
+  * Material Design resets
+  **/
+.mdl-button--raised {
+  margin: 0 10px 0 10px;
+}
+/***
+ * Components
+ ***/
+
+/* Header */
+.mdl-layout__header {
+  background-color: #ff5f00;
 }
 
+/* StopWatch */
 .stopwatch,
 .stopwatch h4 {
   display: inline;
+  /*padding: 0 20px 0 20px;*/
+}
+.stopwatch button {
+  /*padding-right: 10px;*/
 }

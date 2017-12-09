@@ -85,22 +85,20 @@ export default class Stopwatch extends Component {
   };
 
   render() {
-    let toggleText = !this.state.toggle ? 'Play' : 'Pause';
+    let toggleText = !this.state.toggle ? (
+      <i class="material-icons">play_arrow</i>
+    ) : (
+      <i class="material-icons">pause</i>
+    );
 
     return (
-      <div ref="time" className="stopwatch mdl-cell mdl-cell--4-col" id="time">
+      <div ref="time" className="stopwatch mdl-cell mdl-cell--12-col" id="time">
         <h4>{this.state.currentTime}</h4>
-        <button
-          className="mdl-button mdl-js-button mdl-button--raised"
-          onClick={this.runTimer}
-        >
-          {toggleText}
+        <button className="" onClick={this.runTimer}>
+          <i class="material-icons">{toggleText}</i>
         </button>
-        <button
-          className="mdl-button mdl-js-button mdl-button--raised"
-          onClick={this.resetTimer}
-        >
-          Reset
+        <button className="" onClick={this.resetTimer}>
+          <i class="material-icons">replay</i>
         </button>
       </div>
     );

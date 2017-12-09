@@ -16,8 +16,8 @@ export default class Header extends Component {
 
   render() {
     return (
-      <div className="header">
-        <h1>todos</h1>
+      <div className="header mdl-cell mdl-cell--12-col">
+        <h2>Todos</h2>
         <TodoTextInput
           newTodo
           onSave={this.handleSave}

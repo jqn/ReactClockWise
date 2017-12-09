@@ -47,22 +47,18 @@ export default class TodoItem extends Component {
       );
     } else {
       element = (
-        <div className="view ">
-          <div className="mdl-grid">
-            <div className="mdl-cell mdl-cell--5-col">
-              <input
-                className="toggle"
-                type="checkbox"
-                checked={todo.completed}
-                onChange={() => completeTodo(todo.id)}
-              />
-              <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
-            </div>
-            <Stopwatch todo={this.props.todo} {...actions} />
-            <div className="mdl-cell mdl-cell--2-col">
-              <button className="destroy" onClick={() => deleteTodo(todo.id)} />
-            </div>
+        <div className="view mdl-cell mdl-cell--12-col">
+          <div className="view mdl-cell mdl-cell--12-col">
+            <input
+              className="toggle"
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => completeTodo(todo.id)}
+            />
+            <label onDoubleClick={this.handleDoubleClick}>{todo.text}</label>
           </div>
+          <Stopwatch todo={this.props.todo} {...actions} />
+          {/* <button className="destroy" onClick={() => deleteTodo(todo.id)} /> */}
         </div>
       );
     }
