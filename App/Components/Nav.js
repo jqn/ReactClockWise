@@ -28,7 +28,9 @@ const Nav = props => {
           </a>
         </nav>
       </div>
-      <div className="mdl-layout__content">{props.children}</div>
+      <div className="mdl-layout__content mdl-cell--2-offset-desktop">
+        {props.children}
+      </div>
     </div>
   );
 };

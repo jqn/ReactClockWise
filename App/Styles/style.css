@@ -10,7 +10,7 @@ ul {
   * Material Design resets
   **/
 .mdl-grid {
-  padding: 0 !important;
+  padding: 0;
 }
 .mdl-button--colored {
   margin: 0 10px 0 10px;
@@ -43,13 +43,11 @@ ul {
 .todo-text {
   font-size: 16px;
 }
-
 /* StopWatch */
 .stopwatch h5 {
   display: inline;
 }
-.stopwatch .play,
-.stopwatch .pause,
-.stopwatch .reset {
-  /*margin-top: -10px;*/
+/* TodoItem */
+.todo-text {
+  word-break: break-all;
 }
