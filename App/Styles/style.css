@@ -9,8 +9,28 @@ ul {
 /***
   * Material Design resets
   **/
-.mdl-button--raised {
+.mdl-grid {
+  padding: 0 !important;
+}
+.mdl-button--colored {
   margin: 0 10px 0 10px;
+}
+.mdl-button--fab.mdl-button--colored {
+  background: #ff5f00;
+}
+.mdl-button--fab.mdl-button--colored {
+  background: #ff5f00;
+}
+.mdl-button--fab.mdl-button--colored:active {
+  background: #ff5f00;
+}
+.mdl-button--fab.mdl-button--colored:hover {
+  background: #ff5f00;
+}
+.mdl-button--fab.mdl-button--mini-fab {
+  height: 30px;
+  min-width: 30px;
+  width: 30px;
 }
 /***
  * Components
@@ -20,13 +40,16 @@ ul {
 .mdl-layout__header {
   background-color: #ff5f00;
 }
+.todo-text {
+  font-size: 16px;
+}
 
 /* StopWatch */
-.stopwatch,
-.stopwatch h4 {
+.stopwatch h5 {
   display: inline;
-  /*padding: 0 20px 0 20px;*/
 }
-.stopwatch button {
-  /*padding-right: 10px;*/
+.stopwatch .play,
+.stopwatch .pause,
+.stopwatch .reset {
+  /*margin-top: -10px;*/
 }

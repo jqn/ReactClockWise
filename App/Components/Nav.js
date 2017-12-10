@@ -9,7 +9,7 @@ const Nav = props => {
           <div className="mdl-layout-spacer" />
           <nav className="mdl-navigation">
             <a className="mdl-navigation__link" href="#">
-              Settings
+              <i className="material-icons">settings</i>
             </a>
           </nav>
         </div>

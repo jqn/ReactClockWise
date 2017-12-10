@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import time from '../Lib/TimeTracker';
 import moment from 'moment';
+import classnames from 'classnames';
 
 export default class Stopwatch extends Component {
   constructor() {
@@ -86,20 +87,37 @@ export default class Stopwatch extends Component {
 
   render() {
     let toggleText = !this.state.toggle ? (
-      <i class="material-icons">play_arrow</i>
+      <i className="material-icons">play_arrow</i>
     ) : (
-      <i class="material-icons">pause</i>
+      <i className="material-icons">pause</i>
     );
-
     return (
-      <div ref="time" className="stopwatch mdl-cell mdl-cell--12-col" id="time">
-        <h4>{this.state.currentTime}</h4>
-        <button className="" onClick={this.runTimer}>
-          <i class="material-icons">{toggleText}</i>
-        </button>
-        <button className="" onClick={this.resetTimer}>
-          <i class="material-icons">replay</i>
-        </button>
+      <div
+        ref="time"
+        className="stopwatch mdl-cell mdl-cell--4-col-phone mdl-cell--3-col-tablet"
+        id="time"
+      >
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--2-col-phone mdl-cell--4-col-tablet">
+            <h5 className="counter">{this.state.currentTime}</h5>
+          </div>
+          <div className="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet">
+            <button
+              className="mdl-cell--12-offset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+              onClick={this.runTimer}
+            >
+              {toggleText}
+            </button>
+          </div>
+          <div className="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet">
+            <button
+              className="reset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+              onClick={this.resetTimer}
+            >
+              <i className="material-icons">replay</i>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
