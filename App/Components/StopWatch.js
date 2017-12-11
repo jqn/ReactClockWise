@@ -94,7 +94,7 @@ export default class Stopwatch extends Component {
     return (
       <div
         ref="time"
-        className="stopwatch mdl-cell mdl-cell--4-col-phone mdl-cell--3-col-tablet"
+        className="stopwatch mdl-cell mdl-cell--3-col-phone mdl-cell--3-col-tablet"
         id="time"
       >
         <div className="mdl-grid">

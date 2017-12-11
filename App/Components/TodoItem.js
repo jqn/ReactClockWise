@@ -64,7 +64,12 @@ export default class TodoItem extends Component {
               </label>
             </div>
             <Stopwatch todo={this.props.todo} {...actions} />
-            {/* <button className="destroy" onClick={() => deleteTodo(todo.id)} /> */}
+            <button
+              className="destroy mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"
+              onClick={() => deleteTodo(todo.id)}
+            >
+              <i className="material-icons">close</i>
+            </button>
           </div>
         </div>
       );

@@ -51,3 +51,14 @@ ul {
 .todo-text {
   word-break: break-all;
 }
+
+.todo-list li {
+  border-bottom: 1px solid #ededed;
+}
+
+.todo-list li .toggle {
+  text-align: center;
+  width: 40px;
+  /* auto, since non-WebKit browsers doesn't support input styling */
+  height: auto;
+}
