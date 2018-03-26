@@ -6,4 +6,8 @@ To do list with time tracker
 
 * First clone repo `$ git clone https://github.com/jqn/tkdo.git
 * Navigate to the project root directory `$ cd TrackDo`
-* Run `npm watch`
+* Run `$ npm run watch`
+
+#### Deploy
+
+* Run `$ npm run build`
