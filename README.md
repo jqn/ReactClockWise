@@ -1,5 +1,9 @@
-# from-grunt-to-webpack
+#TrackDo
 
-This is a sample Webpack build that mirrors the functionality of a Grunt build found [here](https://github.com/sashee/react-tictactoe/blob/master/Gruntfile.js)
+To do list with time tracker
 
-This repository is accompanied by a blog post, you can read at https://advancedweb.hu/2016/02/02/the-first-steps-from-grunt-to-webpack/ .
+#### Installation
+
+* First clone repo `$ git clone https://github.com/jqn/tkdo.git
+* Navigate to the project root directory `$ cd TrackDo`
+* Run `npm watch`
