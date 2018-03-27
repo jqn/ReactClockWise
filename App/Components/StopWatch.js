@@ -18,7 +18,6 @@ export default class Stopwatch extends Component {
   }
 
   componentDidMount() {
-    console.log('mount props', this.props.todo.timestamp);
     if (this.props.todo.timestamp === '00:00:00') {
       this.initializeTime();
     } else {
@@ -27,6 +26,13 @@ export default class Stopwatch extends Component {
   }
 
   rehydrateTime = () => {
+    let time = this.props.todo.timestamp;
+    let timearray = time.split(':');
+    let hours = Number(timearray[0]) * 3600000;
+    let minutes = Number(timearray[1]) * 60000;
+    let seconds = Number(timearray[2]) * 1000;
+    // console.log('rehydrateTime', typeof hours);
+    this.time = hours + minutes + seconds;
     this.setState({
       currentTime: this.props.todo.timestamp
     });

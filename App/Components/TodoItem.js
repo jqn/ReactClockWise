@@ -30,7 +30,6 @@ export default class TodoItem extends Component {
   };
 
   render() {
-    console.log('todoitem', this.props);
     const { todo, completeTodo, deleteTodo, reset, start, pause } = this.props;
     const actions = {
       reset: this.props.reset,
