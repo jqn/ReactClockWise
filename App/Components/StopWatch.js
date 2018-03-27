@@ -18,13 +18,24 @@ export default class Stopwatch extends Component {
   }
 
   componentDidMount() {
-    this.initializeTime();
+    console.log('mount props', this.props.todo.timestamp);
+    if (this.props.todo.timestamp === '00:00:00') {
+      this.initializeTime();
+    } else {
+      this.rehydrateTime();
+    }
   }
+
+  rehydrateTime = () => {
+    this.setState({
+      currentTime: this.props.todo.timestamp
+    });
+  };
 
   initializeTime = () => {
     this.time = 0;
     this.setState({
-      currentTime: this.formatTime(this.getTime()),
+      currentTime: this.formatTime(this.getTime())
     });
   };
 
@@ -57,7 +68,7 @@ export default class Stopwatch extends Component {
 
   toggle = () => {
     this.setState({
-      toggle: !this.state.toggle,
+      toggle: !this.state.toggle
     });
   };
 
@@ -73,7 +84,6 @@ export default class Stopwatch extends Component {
     this.time += 100;
     const newTime = this.getTime();
     const formattedTime = this.formatTime(newTime);
-
     this.setState({ currentTime: formattedTime });
   };
 

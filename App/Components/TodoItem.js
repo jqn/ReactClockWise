@@ -9,11 +9,11 @@ export default class TodoItem extends Component {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
-    completeTodo: PropTypes.func.isRequired,
+    completeTodo: PropTypes.func.isRequired
   };
 
   state = {
-    editing: false,
+    editing: false
   };
 
   handleDoubleClick = () => {
@@ -30,11 +30,12 @@ export default class TodoItem extends Component {
   };
 
   render() {
+    console.log('todoitem', this.props);
     const { todo, completeTodo, deleteTodo, reset, start, pause } = this.props;
     const actions = {
       reset: this.props.reset,
       start: this.props.start,
-      pause: this.props.pause,
+      pause: this.props.pause
     };
     let element;
     if (this.state.editing) {
@@ -79,7 +80,7 @@ export default class TodoItem extends Component {
       <li
         className={classnames({
           completed: todo.completed,
-          editing: this.state.editing,
+          editing: this.state.editing
         })}
       >
         {element}
