@@ -31,7 +31,7 @@ export default class Stopwatch extends Component {
     let hours = Number(timearray[0]) * 3600000;
     let minutes = Number(timearray[1]) * 60000;
     let seconds = Number(timearray[2]) * 1000;
-    // console.log('rehydrateTime', typeof hours);
+
     this.time = hours + minutes + seconds;
     this.setState({
       currentTime: this.props.todo.timestamp
