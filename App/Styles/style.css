@@ -3,34 +3,46 @@
   ***/
 ol,
 ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+}
+::selection {
+    background: rgb(255, 152, 0); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+    background: rgb(255, 152, 0); /* Gecko Browsers */
 }
 /***
   * Material Design resets
   **/
 .mdl-grid {
-  padding: 0;
+    padding: 0;
 }
 .mdl-button--colored {
-  margin: 0 10px 0 10px;
+    margin: 0 10px 0 10px;
 }
 .mdl-button--fab.mdl-button--colored {
-  background: #ff5f00;
+    background: #ff5f00;
 }
 .mdl-button--fab.mdl-button--colored {
-  background: #ff5f00;
+    background: #ff5f00;
 }
 .mdl-button--fab.mdl-button--colored:active {
-  background: #ff5f00;
+    background: rgb(255, 152, 0);
+}
+.mdl-button--fab.mdl-button--colored:focus:not(:active) {
+    background-color: rgb(255, 152, 0);
 }
 .mdl-button--fab.mdl-button--colored:hover {
-  background: #ff5f00;
+    background: rgb(255, 87, 34);
+}
+.mdl-button--fab.mdl-button--colored:focus {
+    background-color: rgb(255, 152, 0);
 }
 .mdl-button--fab.mdl-button--mini-fab {
-  height: 30px;
-  min-width: 30px;
-  width: 30px;
+    height: 30px;
+    min-width: 30px;
+    width: 30px;
 }
 /***
  * Components
@@ -38,27 +50,78 @@ ul {
 
 /* Header */
 .mdl-layout__header {
-  background-color: #ff5f00;
+    background-color: #ff5f00;
 }
 .todo-text {
-  font-size: 16px;
+    font-size: 16px;
+}
+
+.todoapp {
+    background: #fff;
+    margin: 130px 0 40px 0;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
 }
 /* StopWatch */
 .stopwatch h5 {
-  display: inline;
+    display: inline;
 }
 /* TodoItem */
 .todo-text {
-  word-break: break-all;
+    word-break: break-all;
 }
 
 .todo-list li {
-  border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
 }
 
 .todo-list li .toggle {
-  text-align: center;
-  width: 40px;
-  /* auto, since non-WebKit browsers doesn't support input styling */
-  height: auto;
+    text-align: center;
+    width: 40px;
+    /* auto, since non-WebKit browsers doesn't support input styling */
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    border: none; /* Mobile Safari */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.todo-list li .toggle {
+    opacity: 0;
+}
+
+.todo-list li .toggle + label {
+    /*
+		Firefox requires `#` to be escaped - https://bugzilla.mozilla.org/show_bug.cgi?id=922433
+		IE and Edge requires *everything* to be escaped to render, so we do that instead of just the `#` - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/7157459/
+	*/
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20stroke-width%3D%223%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+
+.todo-list li .toggle:checked + label {
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E');
+}
+
+.todo-list li label {
+    word-break: break-all;
+    padding: 15px 15px 15px 60px;
+    display: block;
+    line-height: 1.2;
+    transition: color 0.4s;
+}
+
+.todo-list li.completed label {
+    color: #d9d9d9;
+    text-decoration: line-through;
 }

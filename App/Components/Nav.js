@@ -5,7 +5,7 @@ const Nav = props => {
     <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header className="mdl-layout__header">
         <div className="mdl-layout__header-row">
-          <span className="mdl-layout-title">YouDo</span>
+          <span className="mdl-layout-title">ClockWise</span>
           <div className="mdl-layout-spacer" />
           <nav className="mdl-navigation">
             <a className="mdl-navigation__link" href="#">
@@ -15,7 +15,7 @@ const Nav = props => {
         </div>
       </header>
       <div className="mdl-layout__drawer">
-        <span className="mdl-layout-title">YouDo</span>
+        <span className="mdl-layout-title">ClockWise</span>
         <nav className="mdl-navigation">
           <a className="mdl-navigation__link" href="#">
             All

@@ -49,7 +49,7 @@ export default class TodoItem extends Component {
       element = (
         <div className="view mdl-cell mdl-cell--12-col">
           <div className="mdl-grid">
-            <div className="view mdl-cell mdl-cell--4-col-phone mdl-cell--5-col-tablet">
+            <div className="view">
               <input
                 className="toggle"
                 type="checkbox"
@@ -63,7 +63,7 @@ export default class TodoItem extends Component {
                 {todo.text}
               </label>
             </div>
-            <Stopwatch todo={this.props.todo} {...actions} />
+            {/* <Stopwatch todo={this.props.todo} {...actions} /> */}
             <button
               className="destroy mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"
               onClick={() => deleteTodo(todo.id)}

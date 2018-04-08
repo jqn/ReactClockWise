@@ -13,6 +13,7 @@ export function editTodo(id, text) {
 }
 
 export function completeTodo(id) {
+  console.log('complete todo', id);
   return { type: types.COMPLETE_TODO, id };
 }
 
@@ -32,7 +33,7 @@ export function start(status, id) {
   return {
     type: types.START,
     status,
-    id,
+    id
   };
 }
 
@@ -41,7 +42,7 @@ export function pause(status, id, timestamp) {
     type: types.PAUSE,
     status,
     id,
-    timestamp,
+    timestamp
   };
 }
 
@@ -51,6 +52,6 @@ export function reset(status, id, timestamp, datestamp) {
     status,
     id,
     timestamp,
-    datestamp,
+    datestamp
   };
 }

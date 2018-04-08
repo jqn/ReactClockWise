@@ -25,6 +25,10 @@ export default class Stopwatch extends Component {
     }
   }
 
+  componentWillUnmount() {
+    console.log('stopwatch unmounted');
+  }
+
   rehydrateTime = () => {
     let time = this.props.todo.timestamp;
     let timearray = time.split(':');
