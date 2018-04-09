@@ -114,29 +114,31 @@ export default class Stopwatch extends Component {
     return (
       <div
         ref="time"
-        className="stopwatch mdl-cell mdl-cell--3-col-phone mdl-cell--3-col-tablet"
+        className="stopwatch mdl-cell mdl-cell--12-col mdl-grid"
         id="time"
       >
-        <div className="mdl-grid">
-          <div className="mdl-cell mdl-cell--2-col-phone mdl-cell--4-col-tablet">
-            <h5 className="counter">{this.state.currentTime}</h5>
-          </div>
-          <div className="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet">
-            <button
-              className="mdl-cell--12-offset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
-              onClick={this.runTimer}
-            >
-              {toggleText}
-            </button>
-          </div>
-          <div className="mdl-cell mdl-cell--1-col-phone mdl-cell--2-col-tablet">
-            <button
-              className="reset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
-              onClick={this.resetTimer}
-            >
-              <i className="material-icons">replay</i>
-            </button>
-          </div>
+        <div className="timer mdl-cell mdl-cell mdl-cell--4-col">
+          <h5 className="counter">{this.state.currentTime}</h5>
+        </div>
+        <div className="controls mdl-cell  mdl-cell mdl-cell mdl-cell--4-col">
+          <button
+            className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab play"
+            onClick={this.runTimer}
+          >
+            {toggleText}
+          </button>
+          <button
+            className="reset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab replay"
+            onClick={this.resetTimer}
+          >
+            <i className="material-icons">replay</i>
+          </button>
+          <button
+            className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect delete"
+            onClick={this.props.deleteTodo}
+          >
+            <i className="material-icons">close</i>
+          </button>
         </div>
       </div>
     );

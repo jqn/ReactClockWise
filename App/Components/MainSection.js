@@ -7,7 +7,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
   [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed,
+  [SHOW_COMPLETED]: todo => todo.completed
 };
 
 var tens = 0;
@@ -15,11 +15,11 @@ var tens = 0;
 export default class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
   };
 
   state = {
-    filter: SHOW_ALL,
+    filter: SHOW_ALL
   };
 
   handleClearCompleted = () => {
@@ -71,18 +71,18 @@ export default class MainSection extends Component {
     const filteredTodos = todos.filter(TODO_FILTERS[filter]);
     const completedCount = todos.reduce(
       (count, todo) => (todo.completed ? count + 1 : count),
-      0,
+      0
     );
 
     return (
       <div className="main mdl-cell mdl-cell--12-col">
-        {/* {this.renderToggleAll(completedCount)} */}
+        {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo => (
             <TodoItem key={todo.id} todo={todo} {...actions} />
           ))}
         </ul>
-        {/* {this.renderFooter(completedCount)} */}
+        {this.renderFooter(completedCount)}
       </div>
     );
   }
