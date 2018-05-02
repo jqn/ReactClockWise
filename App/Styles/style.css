@@ -127,7 +127,7 @@ body {
     height: 34px;
     font-size: 0;
     position: absolute;
-    top: -85px;
+    top: -70px;
     left: -13px;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -182,7 +182,8 @@ body {
     /* auto, since non-WebKit browsers doesn't support input styling */
     height: auto;
     position: absolute;
-    top: 0;
+    /* top: 0; */
+    left: 0;
     bottom: 0;
     margin: auto 0;
     border: none; /* Mobile Safari */
@@ -437,5 +438,13 @@ html .clear-completed:active {
 
 /* Toggles */
 .todo-list li .toggle {
-    bottom: 40px;
+    /* bottom: 40px; */
+}
+
+.mdl-cell.stopwatch {
+    margin: 0;
+}
+
+.mdl-cell.mdl-cell {
+    margin: 0;
 }

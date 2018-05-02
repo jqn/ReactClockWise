@@ -114,10 +114,10 @@ export default class Stopwatch extends Component {
     return (
       <div
         ref="time"
-        className="stopwatch mdl-cell mdl-cell--12-col mdl-grid"
+        className="mdl-cell mdl-cell--12-col mdl-grid stopwatch"
         id="time"
       >
-        <div className="timer mdl-cell mdl-cell mdl-cell--4-col">
+        <div className="timer mdl-cell mdl-cell mdl-cell--4-col counter-wrapper">
           <h5 className="counter">{this.state.currentTime}</h5>
         </div>
         <div className="controls mdl-cell  mdl-cell mdl-cell mdl-cell--4-col">
