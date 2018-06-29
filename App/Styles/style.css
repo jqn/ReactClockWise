@@ -180,9 +180,9 @@ body {
   /* auto, since non-WebKit browsers doesn't support input styling */
   height: auto;
   position: absolute;
-  /* top: 0; */
+  top: 5px;
   left: 0;
-  bottom: 0;
+  /* bottom: 0; */
   margin: auto 0;
   border: none; /* Mobile Safari */
   -webkit-appearance: none;
@@ -435,9 +435,9 @@ html .clear-completed:active {
 }
 
 /* Toggles */
-.todo-list li .toggle {
-  /* bottom: 40px; */
-}
+/* .todo-list li .toggle {
+  bottom: 40px;
+} */
 
 .mdl-cell.stopwatch {
   margin: 0;
