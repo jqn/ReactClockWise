@@ -1,3 +1,6 @@
+/**
+ * index.js
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
@@ -9,15 +12,15 @@ import { createLogger } from 'redux-logger';
 import { persistStore } from 'redux-persist';
 // middleware that logs actions
 const loggerMiddleware = createLogger({
-  predicate: (getState, action) => process.env.NODE_ENV === 'development',
+  predicate: (getState, action) => process.env.NODE_ENV === 'development'
 });
 
 function configureStore(initialState) {
   const enhancer = compose(
     applyMiddleware(
       thunkMiddleware, // lets us dispatch() functions
-      loggerMiddleware,
-    ),
+      loggerMiddleware
+    )
   );
   return createStore(reducer, initialState, enhancer);
 }
@@ -29,5 +32,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

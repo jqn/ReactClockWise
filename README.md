@@ -1,14 +1,14 @@
-#ClockWise
+# ClockWise
 
 To do list with time tracker
 
-#### Installation
+#### Run Locally
 
-* First clone repo `$ git clone https://github.com/jqn/ClockWise.git
-* Navigate to the project root directory `$ cd ClockWise`
-* Run `$ npm run watch`
-* Point your browser to `http://localhost:8080`
+- First clone repo `$ git clone https://github.com/jqn/ClockWise.git`
+- Navigate to the project root directory `$ cd ClockWise`
+- Run `$ npm run watch`
+- Point your browser to `http://localhost:8080`
 
-#### Deploy
+#### Build Deploy
 
-* Run `$ npm run build`
+- Run `$ npm run build`

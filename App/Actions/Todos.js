@@ -1,3 +1,6 @@
+/**
+ * App/Actions/Todos.js
+ */
 import * as types from './Types';
 
 export function addTodo(text, timestamp, datestamp) {

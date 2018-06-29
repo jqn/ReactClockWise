@@ -1,3 +1,6 @@
+/**
+ * App/Components/StopWatch.js
+ */
 import React, { Component } from 'react';
 import time from '../Lib/TimeTracker';
 import moment from 'moment';
@@ -115,28 +118,24 @@ export default class Stopwatch extends Component {
       <div
         ref="time"
         className="mdl-cell mdl-cell--12-col mdl-grid stopwatch"
-        id="time"
-      >
+        id="time">
         <div className="timer mdl-cell mdl-cell mdl-cell--4-col counter-wrapper">
           <h5 className="counter">{this.state.currentTime}</h5>
         </div>
         <div className="controls mdl-cell  mdl-cell mdl-cell mdl-cell--4-col">
           <button
             className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab play"
-            onClick={this.runTimer}
-          >
+            onClick={this.runTimer}>
             {toggleText}
           </button>
           <button
             className="reset mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab replay"
-            onClick={this.resetTimer}
-          >
+            onClick={this.resetTimer}>
             <i className="material-icons">replay</i>
           </button>
           <button
             className="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect delete"
-            onClick={this.props.deleteTodo}
-          >
+            onClick={this.props.deleteTodo}>
             <i className="material-icons">close</i>
           </button>
         </div>

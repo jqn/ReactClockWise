@@ -1,3 +1,6 @@
+/**
+ * App/Containers/App.js
+ */
 'use strict';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -20,15 +23,18 @@ const App = ({ todos, actions }) => (
 
 App.propTypes = {
   todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  todos: state.Todos,
+  todos: state.Todos
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(ActionCreators, dispatch),
+  actions: bindActionCreators(ActionCreators, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

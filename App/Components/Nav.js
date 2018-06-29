@@ -1,3 +1,6 @@
+/**
+ * App/Components/Nav.js
+ */
 import React, { Component } from 'react';
 
 const Nav = props => {

@@ -1,3 +1,6 @@
+/**
+ * App/Components/Footer.js
+ */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -6,7 +9,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
   [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed',
+  [SHOW_COMPLETED]: 'Completed'
 };
 
 export default class Footer extends Component {
@@ -15,7 +18,7 @@ export default class Footer extends Component {
     activeCount: PropTypes.number.isRequired,
     filter: PropTypes.string.isRequired,
     onClearCompleted: PropTypes.func.isRequired,
-    onShow: PropTypes.func.isRequired,
+    onShow: PropTypes.func.isRequired
   };
 
   renderTodoCount() {
@@ -37,8 +40,7 @@ export default class Footer extends Component {
       <a
         className={classnames({ selected: filter === selectedFilter })}
         style={{ cursor: 'pointer' }}
-        onClick={() => onShow(filter)}
-      >
+        onClick={() => onShow(filter)}>
         {title}
       </a>
     );

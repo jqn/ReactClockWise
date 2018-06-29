@@ -1,3 +1,6 @@
+/**
+ * App/Reducers/Todos.js
+ */
 import createReducer from '../Lib/CreateReducer';
 import * as types from '../Actions/Types';
 
@@ -10,8 +13,8 @@ export const Todos = createReducer([], {
         completed: false,
         text: action.text,
         timestamp: action.timestamp,
-        datestamp: action.datestamp,
-      },
+        datestamp: action.datestamp
+      }
     ];
   },
   [types.DELETE_TODO](state, action) {
@@ -19,26 +22,26 @@ export const Todos = createReducer([], {
   },
   [types.EDIT_TODO](state, action) {
     return state.map(
-      todo => (todo.id === action.id ? { ...todo, text: action.text } : todo),
+      todo => (todo.id === action.id ? { ...todo, text: action.text } : todo)
     );
   },
   [types.COMPLETE_TODO](state, action) {
     return state.map(
       todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
+        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
     );
   },
   [types.TRACK_TODO](state, action) {
     return state.map(
       todo =>
-        todo.id === action.id ? { ...todo, timestamp: action.timestamp } : todo,
+        todo.id === action.id ? { ...todo, timestamp: action.timestamp } : todo
     );
   },
   [types.COMPLETE_ALL](state, action) {
     const areAllMarked = state.every(todo => todo.completed);
     return state.map(todo => ({
       ...todo,
-      completed: !areAllMarked,
+      completed: !areAllMarked
     }));
   },
   [types.CLEAR_COMPLETED](state, action) {
@@ -47,7 +50,7 @@ export const Todos = createReducer([], {
   [types.START](state, action) {
     return state.map(
       todo =>
-        todo.id === action.id ? { ...todo, status: action.status } : todo,
+        todo.id === action.id ? { ...todo, status: action.status } : todo
     );
   },
   [types.PAUSE](state, action) {
@@ -55,7 +58,7 @@ export const Todos = createReducer([], {
       todo =>
         todo.id === action.id
           ? { ...todo, status: action.status, timestamp: action.timestamp }
-          : todo,
+          : todo
     );
   },
   [types.RESET](state, action) {
@@ -66,9 +69,9 @@ export const Todos = createReducer([], {
               ...todo,
               status: action.status,
               timestamp: action.timestamp,
-              datestamp: action.datestamp,
+              datestamp: action.datestamp
             }
-          : todo,
+          : todo
     );
-  },
+  }
 });

@@ -4,8 +4,7 @@
     "scripts": {
         "start": "webpack --mode development",
         "build": "webpack",
-        "watch":
-            "webpack-dev-server --hot --inline --progress --colors --watch-poll"
+        "watch": "webpack-dev-server --hot --inline --progress --colors --watch-poll"
     },
     "repository": {
         "type": "git",
