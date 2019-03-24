@@ -1,16 +1,16 @@
 /**
  * App/Components/MainSection.js
  */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import TodoItem from './TodoItem';
-import Footer from './Footer';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../Actions/Types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import TodoItem from "./TodoItem";
+import Footer from "./Footer";
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from "../Actions/Types";
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
   [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [SHOW_COMPLETED]: todo => todo.completed,
 };
 
 var tens = 0;
@@ -18,11 +18,11 @@ var tens = 0;
 export default class MainSection extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
   };
 
   state = {
-    filter: SHOW_ALL
+    filter: SHOW_ALL,
   };
 
   handleClearCompleted = () => {
@@ -42,6 +42,7 @@ export default class MainSection extends Component {
             className="toggle-all"
             type="checkbox"
             checked={completedCount === todos.length}
+            onChange={() => null}
           />
           <label onClick={actions.completeAll} />
         </span>
@@ -74,7 +75,7 @@ export default class MainSection extends Component {
     const filteredTodos = todos.filter(TODO_FILTERS[filter]);
     const completedCount = todos.reduce(
       (count, todo) => (todo.completed ? count + 1 : count),
-      0
+      0,
     );
 
     return (

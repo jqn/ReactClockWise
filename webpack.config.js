@@ -1,19 +1,19 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const webpack = require('webpack');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  entry: [path.join(__dirname, 'Index.js')],
+  entry: [path.join(__dirname, "Index.js")],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, "dist"),
+    filename: "bundle.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'App/Index.html',
+      template: path.join(__dirname, "App/Index.html"),
     }),
     new webpack.DefinePlugin({
-      'process.env': {
+      "process.env": {
         NODE_ENV: '"development"',
       },
     }),
@@ -25,22 +25,18 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: [['latest', { es2015: false }], 'react'],
-              plugins: [
-                'transform-class-properties',
-                'transform-object-rest-spread',
-              ],
+              plugins: ["transform-class-properties"],
             },
           },
         ],
       },
       {
         test: /.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-  devtool: 'source-map',
+  devtool: "source-map",
 };

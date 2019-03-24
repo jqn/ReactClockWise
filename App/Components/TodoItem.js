@@ -1,22 +1,22 @@
 /**
  * App/Components/TodoItem.js
  */
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import TodoTextInput from './TodoTextInput';
-import Stopwatch from './Stopwatch';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import TodoTextInput from "./TodoTextInput";
+import Stopwatch from "./Stopwatch";
 
 export default class TodoItem extends Component {
   static propTypes = {
     todo: PropTypes.object.isRequired,
     editTodo: PropTypes.func.isRequired,
     deleteTodo: PropTypes.func.isRequired,
-    completeTodo: PropTypes.func.isRequired
+    completeTodo: PropTypes.func.isRequired,
   };
 
   state = {
-    editing: false
+    editing: false,
   };
 
   handleDoubleClick = () => {
@@ -37,7 +37,7 @@ export default class TodoItem extends Component {
     const actions = {
       reset: this.props.reset,
       start: this.props.start,
-      pause: this.props.pause
+      pause: this.props.pause,
     };
     let element;
     if (this.state.editing) {
@@ -61,7 +61,8 @@ export default class TodoItem extends Component {
               />
               <label
                 className="todo-text"
-                onDoubleClick={this.handleDoubleClick}>
+                onDoubleClick={this.handleDoubleClick}
+              >
                 {todo.text}
               </label>
             </div>
@@ -79,8 +80,9 @@ export default class TodoItem extends Component {
       <li
         className={classnames({
           completed: todo.completed,
-          editing: this.state.editing
-        })}>
+          editing: this.state.editing,
+        })}
+      >
         {element}
       </li>
     );
