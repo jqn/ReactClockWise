@@ -15,7 +15,6 @@ import css from "../Styles/style.css";
 const App = ({ todos, actions }) => (
   <Nav>
     <div className="mdl-grid">
-      <p>Hello</p>
       <Header addTodo={actions.addTodo} />
       <MainSection todos={todos} actions={actions} />
     </div>

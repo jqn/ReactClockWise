@@ -21,11 +21,13 @@ export default class Stopwatch extends Component {
   }
 
   componentDidMount() {
-    if (this.props.todo.timestamp === "00:00:00") {
-      this.initializeTime();
-    } else {
-      this.rehydrateTime();
-    }
+    this.initializeTime();
+
+    // if (this.props.todo.timestamp === "00:00:00") {
+    //   this.initializeTime();
+    // } else {
+    //   this.rehydrateTime();
+    // }
   }
 
   componentWillUnmount() {
@@ -105,7 +107,9 @@ export default class Stopwatch extends Component {
   };
 
   getTime = () => {
-    return moment.utc(this.time);
+    // moment(new Date(this.time));
+    console.log("moment", this);
+    return moment.utc(moment(this.time));
   };
 
   render() {
@@ -116,9 +120,9 @@ export default class Stopwatch extends Component {
     );
     return (
       <div
-        ref={element => (this.time = element)}
+        ref={element => (this.controls = element)}
         className="mdl-cell mdl-cell--12-col mdl-grid stopwatch"
-        id="time"
+        id="controls"
       >
         <div className="timer mdl-cell mdl-cell mdl-cell--4-col counter-wrapper">
           <h5 className="counter">{this.state.currentTime}</h5>
