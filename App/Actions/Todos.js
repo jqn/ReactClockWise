@@ -1,7 +1,7 @@
 /**
  * App/Actions/Todos.js
  */
-import * as types from './Types';
+import * as types from "./Types";
 
 export function addTodo(text, timestamp, datestamp) {
   return { type: types.ADD_TODO, text, timestamp, datestamp };
@@ -16,7 +16,6 @@ export function editTodo(id, text) {
 }
 
 export function completeTodo(id) {
-  console.log('complete todo', id);
   return { type: types.COMPLETE_TODO, id };
 }
 
@@ -32,11 +31,12 @@ export function clearCompleted() {
   return { type: types.CLEAR_COMPLETED };
 }
 
-export function start(status, id) {
+export function start(status, id, timestamp) {
   return {
     type: types.START,
     status,
-    id
+    id,
+    timestamp,
   };
 }
 
@@ -45,7 +45,7 @@ export function pause(status, id, timestamp) {
     type: types.PAUSE,
     status,
     id,
-    timestamp
+    timestamp,
   };
 }
 
@@ -55,6 +55,6 @@ export function reset(status, id, timestamp, datestamp) {
     status,
     id,
     timestamp,
-    datestamp
+    datestamp,
   };
 }

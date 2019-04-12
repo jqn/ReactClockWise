@@ -1,8 +1,8 @@
 /**
  * App/Reducers/Todos.js
  */
-import createReducer from '../Lib/CreateReducer';
-import * as types from '../Actions/Types';
+import createReducer from "../Lib/CreateReducer";
+import * as types from "../Actions/Types";
 
 export const Todos = createReducer([], {
   [types.ADD_TODO](state, action) {
@@ -13,65 +13,66 @@ export const Todos = createReducer([], {
         completed: false,
         text: action.text,
         timestamp: action.timestamp,
-        datestamp: action.datestamp
-      }
+        datestamp: action.datestamp,
+      },
     ];
   },
   [types.DELETE_TODO](state, action) {
     return state.filter(todo => todo.id !== action.id);
   },
   [types.EDIT_TODO](state, action) {
-    return state.map(
-      todo => (todo.id === action.id ? { ...todo, text: action.text } : todo)
+    return state.map(todo =>
+      todo.id === action.id ? { ...todo, text: action.text } : todo,
     );
   },
   [types.COMPLETE_TODO](state, action) {
-    return state.map(
-      todo =>
-        todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+    return state.map(todo =>
+      todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
     );
   },
   [types.TRACK_TODO](state, action) {
-    return state.map(
-      todo =>
-        todo.id === action.id ? { ...todo, timestamp: action.timestamp } : todo
+    return state.map(todo =>
+      todo.id === action.id ? { ...todo, timestamp: action.timestamp } : todo,
     );
   },
   [types.COMPLETE_ALL](state, action) {
     const areAllMarked = state.every(todo => todo.completed);
     return state.map(todo => ({
       ...todo,
-      completed: !areAllMarked
+      completed: !areAllMarked,
     }));
   },
   [types.CLEAR_COMPLETED](state, action) {
     return state.filter(todo => todo.completed === false);
   },
   [types.START](state, action) {
-    return state.map(
-      todo =>
-        todo.id === action.id ? { ...todo, status: action.status } : todo
+    return state.map(todo =>
+      todo.id === action.id
+        ? {
+            ...todo,
+            status: action.status,
+            datestamp: { datetime: action.timestamp },
+          }
+        : todo,
     );
   },
   [types.PAUSE](state, action) {
-    return state.map(
-      todo =>
-        todo.id === action.id
-          ? { ...todo, status: action.status, timestamp: action.timestamp }
-          : todo
+    return state.map(todo =>
+      todo.id === action.id
+        ? { ...todo, status: action.status, timestamp: action.timestamp }
+        : todo,
     );
   },
   [types.RESET](state, action) {
-    return state.map(
-      todo =>
-        todo.id === action.id
-          ? {
-              ...todo,
-              status: action.status,
-              timestamp: action.timestamp,
-              datestamp: action.datestamp
-            }
-          : todo
+    return state.map(todo =>
+      todo.id === action.id
+        ? {
+            ...todo,
+            status: action.status,
+            timestamp: action.timestamp,
+            datestamp: action.datestamp,
+          }
+        : todo,
     );
-  }
+  },
 });

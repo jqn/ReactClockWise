@@ -21,26 +21,40 @@ export default class Stopwatch extends Component {
   }
 
   componentDidMount() {
-    this.initializeTime();
+    console.log("stopwatch mounted", this.props.todo);
 
-    // if (this.props.todo.timestamp === "00:00:00") {
-    //   this.initializeTime();
-    // } else {
-    //   this.rehydrateTime();
-    // }
+    let now = moment(new Date()); //todays date
+    let end = moment(this.props.todo.datestamp.datetime); // another date
+    let duration = moment.duration(now.diff(end));
+
+    let seconds = duration.asSeconds();
+    console.log("secs", seconds);
+    if (this.props.todo.timestamp === "00:00:00") {
+      this.initializeTime();
+    } else {
+      console.log("rehidrate");
+      this.rehydrateTime();
+    }
   }
 
   componentWillUnmount() {
     console.log("stopwatch unmounted");
+    this.clearInterval();
   }
 
   rehydrateTime = () => {
+    if (this.props.todo.status === "running") {
+      // Get time difference from the time
+      // it stopped running
+    }
     let time = this.props.todo.timestamp;
     let timearray = time.split(":");
     let hours = Number(timearray[0]) * 3600000;
     let minutes = Number(timearray[1]) * 60000;
     let seconds = Number(timearray[2]) * 1000;
-
+    let ms = 433276000;
+    console.log("ms", moment.utc(ms).format("HH:mm:ss"));
+    //
     this.time = hours + minutes + seconds;
     this.setState({
       currentTime: this.props.todo.timestamp,
@@ -63,9 +77,21 @@ export default class Stopwatch extends Component {
   };
 
   startTime() {
+    if (this.state.currentTime === "00:00:00") {
+      this.props.start(
+        "running",
+        this.props.todo.id,
+        moment().format("YYYY-MM-DD HH:mm:ss"),
+      );
+    } else {
+      this.props.start(
+        "running",
+        this.props.todo.id,
+        this.props.todo.datestamp.datetime,
+      );
+    }
     this.createInterval();
     this.toggle();
-    this.props.start("running", this.props.todo.id);
   }
 
   pauseTime = () => {
@@ -107,8 +133,6 @@ export default class Stopwatch extends Component {
   };
 
   getTime = () => {
-    // moment(new Date(this.time));
-    console.log("moment", this);
     return moment.utc(moment(this.time));
   };
 
